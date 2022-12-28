@@ -3,13 +3,24 @@ import { TPlane, TPlaneColorProperty, TPlaneDimensionsProperty, TPlanePositionPr
 // Functions
 import { v4 as uuid } from 'uuid';
 import { debounce } from '../../../utils/general';
+import merge from 'lodash.merge';
 // Components
 
-interface IEditorProviderProps {
+type TEditorProviderProps = {
   children: any;
-}
+};
 
-const EditorContext = createContext<any>(null);
+type TEditorContext = {
+  planes: TPlane[];
+  currentlyEditingPlaneId: string | undefined;
+  currentlyEditingPlane: TPlane | undefined;
+  createPlane: Function;
+  readPlaneById: Function;
+  updatePlaneById: Function;
+  deletePlaneById: Function;
+  updateCurrentlyEditingPlaneId: Function;
+  updateCurrentlyEditingPlaneProperties: Function;
+};
 
 const createDefaultPlane = () => {
   return JSON.parse(
@@ -36,7 +47,9 @@ const createDefaultPlane = () => {
   );
 };
 
-const EditorProvider = ({ children }: IEditorProviderProps) => {
+export const EditorContext = createContext<TEditorContext>(undefined!);
+
+const EditorProvider = ({ children }: TEditorProviderProps) => {
   const [planes, setPlanes] = useState<TPlane[]>([createDefaultPlane()]);
   const [currentlyEditingPlaneId, setCurrentlyEditingPlaneId] = useState<string | undefined>(undefined);
 
@@ -92,17 +105,14 @@ const EditorProvider = ({ children }: IEditorProviderProps) => {
     updatePlaneById(currentlyEditingPlaneId, {
       ...currentlyEditingPlane,
       properties: {
-        ...currentlyEditingPlane.properties,
-        ...data,
+        ...merge(currentlyEditingPlane.properties, data),
       },
     });
   };
 
   // Updating
   useEffect(() => {
-    debounce(() => {
-      console.log('saved');
-    }, 5000);
+    // TODO: saving to url 
   }, [planes]);
 
   // Context values

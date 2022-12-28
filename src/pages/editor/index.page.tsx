@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { ChangeEvent, MouseEvent, useEffect, useMemo, useState } from 'react';
+import React, { ChangeEvent, MouseEvent, useContext, useEffect, useMemo, useState } from 'react';
 // Components
 import Plane, { TPlane } from './plane/plane';
 import Button from '../../components/reusable/button/button';
@@ -7,40 +7,21 @@ import { v4 as uuid } from 'uuid';
 // Styles
 import classes from './index.module.scss';
 import CodeOutputModal from './codeOutputModal/codeOutputModal';
+import { EditorContext } from './editorContext/editorContext';
 
 interface IEditorPageProps {}
 
-const createDefaultPlane = () => {
-  return JSON.parse(
-    JSON.stringify({
-      id: uuid(),
-      properties: {
-        color: '#34eb64',
-        position: {
-          x: 0,
-          y: 0,
-          z: 0,
-        },
-        rotation: {
-          x: 0,
-          y: 0,
-          z: 0,
-        },
-        dimensions: {
-          width: 100,
-          height: 100,
-        },
-      },
-    })
-  );
-};
-
 const EditorPage = ({ ...props }: IEditorPageProps) => {
-  const [planes, setPlanes] = useState<TPlane[]>([createDefaultPlane()]);
-  const [currentlyEditingPlaneId, setCurrentlyEditingPlaneId] = useState<string | undefined>(undefined);
+  const {
+    createPlane,
+    deletePlaneById,
+    updateCurrentlyEditingPlaneId,
+    currentlyEditingPlaneId,
+    currentlyEditingPlane,
+    updateCurrentlyEditingPlaneProperties,
+    planes,
+  } = useContext(EditorContext);
   const [isCodeOutputModalOpen, setIsCodeOutputModalOpen] = useState(false);
-
-  const currentlyEditingPlane: TPlane | undefined = planes.find((plane) => plane.id === currentlyEditingPlaneId);
 
   const [dimensionInputs, setDimensionInputs] = useState({
     width: 0,
@@ -63,37 +44,17 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
 
   const [colorInput, setColorInput] = useState('');
 
-  const updatePlaneById = (id: string, updatedPlane: any) => {
-    setPlanes(
-      planes.map((plane) => {
-        if (plane.id !== id) {
-          return plane;
-        }
-
-        return updatedPlane;
-      })
-    );
-  };
-
   // Edit plane
   const onAddPlaneButtonClick = () => {
-    setPlanes([...planes, createDefaultPlane()]);
+    createPlane();
   };
 
   const onDeletePlaneButtonClick = (id: string) => {
-    if (currentlyEditingPlaneId === id) {
-      setCurrentlyEditingPlaneId(undefined);
-    }
-
-    setPlanes(planes.filter((plane) => plane.id !== id));
+    deletePlaneById(id);
   };
 
   const onSelectPlaneButtonClick = (id: string) => {
-    if (currentlyEditingPlaneId === id) {
-      setCurrentlyEditingPlaneId(undefined);
-      return;
-    }
-    setCurrentlyEditingPlaneId(id);
+    updateCurrentlyEditingPlaneId(id);
   };
 
   // Edit plane properties
@@ -103,16 +64,8 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
   };
 
   const onColorButtonClick = () => {
-    if (!currentlyEditingPlane || !currentlyEditingPlaneId) {
-      return;
-    }
-
-    updatePlaneById(currentlyEditingPlaneId, {
-      ...currentlyEditingPlane,
-      properties: {
-        ...currentlyEditingPlane.properties,
-        color: colorInput,
-      },
+    updateCurrentlyEditingPlaneProperties({
+      color: colorInput,
     });
   };
   // Plane dimensions
@@ -121,18 +74,9 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
   };
 
   const onDimensionButtonClick = (dimension: 'width' | 'height') => {
-    if (!currentlyEditingPlane || !currentlyEditingPlaneId) {
-      return;
-    }
-
-    updatePlaneById(currentlyEditingPlaneId, {
-      ...currentlyEditingPlane,
-      properties: {
-        ...currentlyEditingPlane.properties,
-        dimensions: {
-          ...currentlyEditingPlane.properties.dimensions,
-          [dimension]: dimensionInputs[dimension],
-        },
+    updateCurrentlyEditingPlaneProperties({
+      dimensions: {
+        [dimension]: dimensionInputs[dimension],
       },
     });
   };
@@ -142,18 +86,9 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
   };
 
   const onPositionButtonClick = (position: 'x' | 'y' | 'z') => {
-    if (!currentlyEditingPlane || !currentlyEditingPlaneId) {
-      return;
-    }
-
-    updatePlaneById(currentlyEditingPlaneId, {
-      ...currentlyEditingPlane,
-      properties: {
-        ...currentlyEditingPlane.properties,
-        position: {
-          ...currentlyEditingPlane.properties.position,
-          [position]: positionInputs[position],
-        },
+    updateCurrentlyEditingPlaneProperties({
+      position: {
+        [position]: positionInputs[position],
       },
     });
   };
@@ -168,14 +103,10 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
       return;
     }
 
-    updatePlaneById(currentlyEditingPlaneId, {
-      ...currentlyEditingPlane,
-      properties: {
-        ...currentlyEditingPlane.properties,
-        rotation: {
-          ...currentlyEditingPlane.properties.rotation,
-          [rotation]: rotationInputs[rotation],
-        },
+    updateCurrentlyEditingPlaneProperties({
+      position: {
+        ...currentlyEditingPlane.properties.rotation,
+        [rotation]: rotationInputs[rotation],
       },
     });
   };
@@ -227,9 +158,11 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
             {planes.map((plane, idx) => (
               <div key={plane.id}>
                 <span title={plane.id}>Plane</span>
-                <Button size='sm' onClick={() => onSelectPlaneButtonClick(plane.id)}>
-                  {currentlyEditingPlaneId !== plane.id ? 'Select' : 'Unselect'}
-                </Button>
+                {currentlyEditingPlaneId !== plane.id && (
+                  <Button size='sm' onClick={() => onSelectPlaneButtonClick(plane.id)}>
+                    Select
+                  </Button>
+                )}
                 <Button size='sm' onClick={() => onDeletePlaneButtonClick(plane.id)}>
                   Delete
                 </Button>
@@ -380,13 +313,8 @@ const EditorPage = ({ ...props }: IEditorPageProps) => {
             <Button className={clsx(classes['bottom-center'])}>+</Button>
             <Button className={clsx(classes['bottom-right'])}>+</Button>
           </div>
-          {/* <div className={classes['helper']}>
-            <div className={classes['x-plane']} />
-            <div className={classes['y-plane']} />
-            <div className={classes['z-plane']} />
-          </div> */}
           <div>
-            {planes.map((plane) => (
+            {planes.map((plane: TPlane) => (
               <Plane isEditing={plane.id === currentlyEditingPlaneId} key={plane.id} id={plane.id} properties={plane.properties} />
             ))}
           </div>
