@@ -1,0 +1,94 @@
+.root {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 250px;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid black;
+
+  .properties {
+    .property {
+      margin-bottom: 4px;
+      padding: 4px;
+      border: 1px solid black;
+      .input-container {
+        display: flex;
+
+        input {
+          width: 100%;
+          margin-right: 8px;
+        }
+
+        button {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  .show-code-button {
+    margin-top: auto;
+  }
+}
+
+.playground {
+  position: relative;
+  width:100%;
+  margin: 8px;
+
+  .rotater {
+    display:flex;
+    flex-wrap: wrap;
+    position: absolute;
+    right:0px;
+    width: 132.689px;
+    height: 150px;
+  }
+
+  .helper {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    transform: rotateX(45deg) rotateY(45deg);
+    box-sizing: border-box;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform-origin: top left;
+
+    .x-plane {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotateX(90deg);
+
+      background-color: blue;
+      border: 1px dashed blue;
+    }
+
+    .y-plane {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotateY(90deg);
+
+      background-color: green;
+      border: 1px dashed green;
+    }
+
+    .z-plane {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      transform: rotateZ(90deg);
+
+      border: 1px dashed red;
+    }
+  }
+}

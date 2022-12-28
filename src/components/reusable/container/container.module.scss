@@ -1,0 +1,14 @@
+.root {
+  width: 100%;
+  margin: 0 auto;
+  &--width {
+    &-sm {
+      max-width: calc(1000px + 64px);
+      padding: 0px 32px;
+    }
+    &-md {
+      max-width: calc(1248px + 64px);
+      padding: 0px 32px;
+    }
+  }
+}

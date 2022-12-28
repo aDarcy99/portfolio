@@ -1,0 +1,30 @@
+.menu {
+  &__container {
+    position: relative;
+  }
+
+  transform: translateY(calc(100% + 8px));
+  position: absolute;
+
+  &--position {
+    &-top {
+    }
+    &-right {
+    }
+    &-bottom {
+    }
+    &-left {
+    }
+  }
+
+  &--alignment {
+    &-start {
+    }
+
+    &-center {
+    }
+
+    &-end {
+    }
+  }
+}

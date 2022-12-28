@@ -1,0 +1,31 @@
+.root {
+  display: flex;
+  margin: 8px auto;
+  padding: 16px;
+  border-radius: 2px;
+  width: fit-content;
+
+  background-color: #f1f3f5;
+}
+
+.item {
+  margin-right: 8px;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+
+  &-icon {
+    margin-right: 8px;
+  }
+
+  &-expanded {
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  &:hover {
+    .item-expanded {
+      visibility: visible;
+    }
+  }
+}

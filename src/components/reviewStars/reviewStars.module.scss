@@ -1,0 +1,30 @@
+.stars {
+  position: relative;
+  height: 18px;
+
+  .star {
+    height: 18px;
+    width: 18px;
+    margin-right: 4px;
+
+    path {
+      height: 18px;
+      width: 18px;
+      min-width: 18px;
+      min-height: 18px;
+    }
+
+    &--full {
+    }
+  }
+
+  &__empty {
+    position: absolute;
+    display: flex;
+  }
+
+  &__full {
+    display: flex;
+    position: absolute;
+  }
+}

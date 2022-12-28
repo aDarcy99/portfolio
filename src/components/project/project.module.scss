@@ -1,0 +1,26 @@
+.root {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.showcase {
+  width: 50%;
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .title{
+    margin-bottom: 8px;
+  }
+  .description {
+    margin-bottom: 8px;
+  }
+
+  .built-with {
+    display: flex;
+  }
+}

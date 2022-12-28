@@ -1,0 +1,10 @@
+.root {
+  box-sizing: border-box;
+  position: absolute;
+  transform-style: preserve-3d;
+  transform-origin: top left;
+}
+
+.is-editing{
+  outline: 1px dashed #845ef7;
+}
