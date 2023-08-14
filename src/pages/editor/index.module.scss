@@ -1,23 +1,27 @@
 .root {
   display: flex;
-  min-height: 100vh;
-  width: 100vw;
+  height: 100%;
 }
 
-.panel {
+.left-panel {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   width: 250px;
-  margin: 8px;
+  margin-right: 8px;
   padding: 8px;
   border: 1px solid black;
+
+  .plane-selected-text {
+    font-weight: 700;
+  }
 
   .properties {
     .property {
       margin-bottom: 4px;
       padding: 4px;
       border: 1px solid black;
+
       .input-container {
         display: flex;
 
@@ -39,15 +43,16 @@
 }
 
 .playground {
+  overflow: hidden;
   position: relative;
-  width:100%;
-  margin: 8px;
+  width: 100%;
+  border: 1px solid black;
 
   .rotater {
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
     position: absolute;
-    right:0px;
+    right: 0px;
     width: 132.689px;
     height: 150px;
   }
@@ -90,5 +95,21 @@
 
       border: 1px dashed red;
     }
+  }
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 250px;
+  margin-left: 8px;
+  padding: 8px;
+  border: 1px solid black;
+
+  .property {
+    margin-bottom: 4px;
+    padding: 4px;
+    border: 1px solid black;
   }
 }
