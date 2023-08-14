@@ -47,6 +47,7 @@ const createDefaultPlane = () => {
   );
 };
 
+// NOTE: the use of undefined! is to allow us to use functions in the context without checking if they are undefined (https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/context/) 
 export const EditorContext = createContext<TEditorContext>(undefined!);
 
 const EditorProvider = ({ children }: TEditorProviderProps) => {
