@@ -17,8 +17,14 @@ const Header = ({ ...props }) => {
       <Button className={clsx(classes['item'], classes['item-home'])}>
         <HomeIcon color='white' className={clsx(classes['item-icon'])} /> <p className={classes['item-expanded']}>Home</p>
       </Button>
-      <Button className={clsx(classes['item'], classes['item-home'])}>
+      <Button className={clsx(classes['item'], classes['item-projects'])}>
         <PaperPlaneIcon color='white' className={clsx(classes['item-icon'])} /> <p className={classes['item-expanded']}>Projects</p>
+      </Button>
+      <Button className={clsx(classes['item'], classes['item-about-me'])}>
+        <PaperPlaneIcon color='white' className={clsx(classes['item-icon'])} /> <p className={classes['item-expanded']}>About me</p>
+      </Button>
+      <Button className={clsx(classes['item'], classes['item-get-in-touch'])}>
+        <PaperPlaneIcon color='white' className={clsx(classes['item-icon'])} /> <p className={classes['item-expanded']}>Get in touch</p>
       </Button>
     </header>
   );

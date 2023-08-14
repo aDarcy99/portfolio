@@ -1,10 +1,11 @@
 .root {
   display: flex;
   align-items: center;
-  height: 100vh;
+  min-height: 50vh;
 }
 
 .showcase {
+  flex-shrink: 0;
   width: 50%;
 }
 
@@ -13,7 +14,7 @@
   width: 100%;
   flex-direction: column;
 
-  .title{
+  .title {
     margin-bottom: 8px;
   }
   .description {
@@ -22,5 +23,12 @@
 
   .built-with {
     display: flex;
+    gap: 8px;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
   }
 }

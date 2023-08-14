@@ -29,9 +29,9 @@ const Project = ({ project, ...props }: IProjectProps) => {
         {/* TODO: 3d phone with iframe for actual website */}
         <div></div>
         <div className={classes['built-with']}>
-          <span>Built with: </span>
+          <p className={classes['built-with-title']}>Built with: </p>
           {builtWithTechnologies.map((builtWithTechnology) => (
-            <Tag key={builtWithTechnology.label}>
+            <Tag key={builtWithTechnology.label} className={classes['built-with-tag']}>
               {builtWithTechnology.icon} {builtWithTechnology.label}
             </Tag>
           ))}

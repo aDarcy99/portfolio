@@ -29,16 +29,61 @@ const Home: NextPage = () => {
         <Divider />
         <Project
           project={{
-            title: 'Test Project',
-            description: 'This is the description',
+            title: 'Your Chances',
+            description: `One of my first projects. Using data from the CIA World Factbook, 
+            it gives you the chances of being born in a certain country. It was originally built in Vanilla JS, CSS and HTML. 
+            But after becoming more experienced I remade it with React, and replaced CSS with Styled Componentss. 
+            Then after a lot of time using React-JSS I made the switch from styled components to React-JSS and used my own theme component Themerig`,
             links: {
               demo: '/',
               github: '/',
             },
-            builtWithTechnologies: [builtWithTechologies['babel']],
+            builtWithTechnologies: [builtWithTechologies['javascript']],
+          }}
+        />
+        <Project
+          project={{
+            title: 'Simple Typing Test',
+            description: `After using React for a while, I wanted to create something with vanilla Javascript again, so I created a simple typing test. 
+            It made me appreciate how easy it is to build web apps with React.`,
+            links: {
+              demo: '/',
+              github: '/',
+            },
+            builtWithTechnologies: [builtWithTechologies['javascript'], builtWithTechologies['css'], builtWithTechologies['html']],
+          }}
+        />
+        <Project
+          project={{
+            title: 'Portfolio',
+            description: `This website, which went through a lot of revisions to get where it is now. 
+            Sadly design has never come as easily to me as other aspects of web development, even though I have a passion for it. 
+            Although this has led me to wanting to find systems to define design and started my research into Design Systems.`,
+            links: {
+              demo: '/',
+              github: '/',
+            },
+            builtWithTechnologies: [
+              builtWithTechologies['javascript'],
+              builtWithTechologies['react'],
+              builtWithTechologies['nextJs'],
+              builtWithTechologies['jss'],
+            ],
           }}
         />
       </Container>
+      <Container>
+        <h2>My stack</h2>
+      </Container>
+      <Container>
+        <h2>About me</h2>
+      </Container>
+      <Container>
+        <h2>Get in Touch</h2>
+      </Container>
+      <footer>
+        <Container>footer</Container>
+      </footer>
     </>
   );
 };
