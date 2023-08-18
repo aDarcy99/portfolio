@@ -1,3 +1,24 @@
-.container{
-  margin-top: 10px;
+.root {
+  display: flex;
+  max-width: 940px;
+  width: 100%;
+  margin: 80px auto;
+  align-items: flex-start;
+}
+
+.main {
+  width: 100%;
+  margin-left: 32px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.heading {
+  margin-bottom: 16px;
 }
