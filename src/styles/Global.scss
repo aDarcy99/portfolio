@@ -1,3 +1,6 @@
+// NOTE: Import global css variables
+@import './variables/colors.module.scss';
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -6,7 +9,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 * {
@@ -16,6 +19,7 @@
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
