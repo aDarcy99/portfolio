@@ -13,3 +13,16 @@ export const debounce = (callback: any, millisecondsToWait: number) => {
     }, millisecondsToWait);
   };
 };
+
+/**
+ * @summary Returns true if the value parameter is undefined or null
+ * @param value
+ * @returns
+ */
+export const isNil = (value: any) => {
+  if (value === undefined || value === null) {
+    return true;
+  } else {
+    return false;
+  }
+};
