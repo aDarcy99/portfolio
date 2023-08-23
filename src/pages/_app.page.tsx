@@ -8,7 +8,7 @@ import '../styles/Global.scss';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <EditorProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </EditorProvider>
   );
 }
