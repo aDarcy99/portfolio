@@ -10,9 +10,10 @@ interface NavItemProps extends HTMLAttributes<HTMLAnchorElement> {
   href: string;
   onHover: (idx: number | undefined) => void;
   index: number;
+  isActive: boolean;
 }
 
-const NavItem = forwardRef(({ children, onHover, index, href, ...props }: NavItemProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+const NavItem = forwardRef(({ children, onHover, isActive, index, href, ...props }: NavItemProps, ref: ForwardedRef<HTMLAnchorElement>) => {
   const navItemRef = useRef<HTMLAnchorElement>(null);
 
   const isHovered = useHover({ ref: navItemRef.current });
@@ -24,7 +25,7 @@ const NavItem = forwardRef(({ children, onHover, index, href, ...props }: NavIte
   }, [isHovered, index, onHover]);
 
   return (
-    <a {...props} ref={navItemRef} className={clsx(classes['root'], textClasses['paragraph-text'])} href={href}>
+    <a {...props} ref={navItemRef} className={clsx(classes['root'], textClasses['paragraph-text'], isActive && classes['is-active'])} href={href}>
       {children}
     </a>
   );
