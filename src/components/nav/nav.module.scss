@@ -2,13 +2,14 @@
   position: sticky;
   top: 40px;
   flex-shrink: 0;
-  width: 200px;
+  width: 320px;
 }
 
-.title {
+.title-container {
   text-decoration: none;
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  margin-left: 32px;
 }
 
 .nav {
@@ -24,13 +25,13 @@
   position: absolute;
   transition: 0.4s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  // &--hover {
-  //   width: 8px;
-  //   height: 8px;
-  //   border-radius: 100%;
-  //   right: -10px;
-  //   background-color: #dee2e6;
-  // }
+  &--hover {
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    right: -10px;
+    background-color: #dee2e6;
+  }
 
   &--active {
     width: 100%;

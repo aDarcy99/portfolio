@@ -9,46 +9,35 @@
   border-radius: 4px;
   transition: 0.3s all;
 
-  p {
-    transition: 0.3s all;
-    transition-delay: 0.3s;
-    transform: translateX(-34px);
-  }
-
   svg {
     margin-right: 8px;
 
     path {
       transition: 0.4s all;
 
+      background-color: #868e96;
       stroke-dasharray: 1;
       stroke-dashoffset: 1;
       stroke-dashoffset: 1;
     }
   }
 
-  &:hover {
-    p {
-      transform: translateX(0px);
-      transition-delay: 0s;
-    }
-
-    svg {
-      path {
-        stroke-dashoffset: 0;
-      }
-    }
+  p {
+    transition: 0.4s all;
+    color: #868e96;
   }
 
+  &:hover,
   &.is-active {
-    p {
-      transform: translateX(0px);
-    }
-
     svg {
       path {
+        background-color: var(--primary-text);
         stroke-dashoffset: 0;
       }
+    }
+
+    p {
+      color: var(--primary-text);
     }
   }
 }

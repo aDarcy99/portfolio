@@ -7,7 +7,7 @@ import NavItem from './navItem/navItem';
 // Assets
 import FlaskIcon from '../../static/icons/flaskIcon';
 import BriefcaseIcon from '../../static/icons/briefcaseIcon';
-import PersonIcon from '../../static/icons/PersonIcon';
+import PersonIcon from '../../static/icons/personIcon';
 import MailIcon from '../../static/icons/socials/mailIcon';
 import MonitorIcon from '../../static/icons/monitorIcon';
 // Styles
@@ -43,21 +43,21 @@ const Nav = (props: Props) => {
   };
 
   // NOTE: removed on hover affect for now
-  // useEffect(() => {
-  //   if (isNil(hoveredNavIdx) || activeNavIdx === hoveredNavIdx) {
-  //     setHoverItemStyles((hoverItemStyles) => ({ ...hoverItemStyles, opacity: 0 }));
-  //     return;
-  //   }
+  useEffect(() => {
+    if (isNil(hoveredNavIdx) || activeNavIdx === hoveredNavIdx) {
+      setHoverItemStyles((hoverItemStyles) => ({ ...hoverItemStyles, opacity: 0 }));
+      return;
+    }
 
-  //   const hoveredNavElement = navItemRefs.current[hoveredNavIdx!];
+    const hoveredNavElement = navItemRefs.current[hoveredNavIdx!];
 
-  //   const hoveredNavElementDimensions = hoveredNavElement.getBoundingClientRect();
+    const hoveredNavElementDimensions = hoveredNavElement.getBoundingClientRect();
 
-  //   setHoverItemStyles({
-  //     top: hoveredNavElement.offsetTop - 5 + hoveredNavElementDimensions.height / 2,
-  //     opacity: 1,
-  //   });
-  // }, [hoveredNavIdx, activeNavIdx]);
+    setHoverItemStyles({
+      top: hoveredNavElement.offsetTop - 5 + hoveredNavElementDimensions.height / 2,
+      opacity: 1,
+    });
+  }, [hoveredNavIdx, activeNavIdx]);
 
   useEffect(() => {
     if (isNil(activeNavIdx)) {
@@ -81,9 +81,11 @@ const Nav = (props: Props) => {
 
   return (
     <div className={classes['root']}>
-      <a className={clsx(classes['title'])} href='#home'>
+      <a className={clsx(classes['title-container'])} href='#home'>
         <h1 className={textClasses['title-text']}>Lachlan D&apos;Arcy</h1>
       </a>
+      <p className={textClasses['subtitle-text']}>Full-stack developer</p>
+
       {/* <p>Full-stack developer</p> */}
       <nav ref={navRef} className={classes['nav']}>
         {navItems.map((item, idx) => (
@@ -100,7 +102,7 @@ const Nav = (props: Props) => {
             <p>{item.name}</p>
           </NavItem>
         ))}
-        {/* <div className={clsx(classes['slider'], classes['slider--hover'])} style={{ ...hoverItemStyles }} /> */}
+        <div className={clsx(classes['slider'], classes['slider--hover'])} style={{ ...hoverItemStyles }} />
         <div className={clsx(classes['slider'], classes['slider--active'])} style={{ ...activeItemStyles }} />
       </nav>
     </div>
