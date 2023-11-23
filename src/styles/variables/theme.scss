@@ -1,0 +1,15 @@
+:root {
+  &.theme--dark {
+    --color-title-text: #ffd43b;
+    --color-subtitle-text: #f1f3f5;
+    --color-heading-text: #f1f3f5;
+    --color-subheading-text: #f1f3f5;
+    --color-paragraph-text: #dee2e6;
+
+    --color-background: #0e141b;
+    --color-card-background: #e9ecef;
+  }
+
+  &.theme--light {
+  }
+}
