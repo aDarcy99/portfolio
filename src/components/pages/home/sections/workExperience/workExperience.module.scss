@@ -1,0 +1,49 @@
+@import '../../../../../styles/media.scss';
+
+.heading {
+  margin-bottom: 16px;
+}
+
+.position {
+  margin-bottom: 16px;
+}
+
+.info-container {
+  display: flex;
+  margin-bottom: 4px;
+
+  @include phone {
+    flex-direction: column;
+
+    .info {
+      margin-bottom: 4px;
+    }
+  }
+}
+
+.seperator {
+  display: inline-flex;
+  width: 2px;
+  margin: 0px 10px;
+
+  background-color: var(--color-paragraph-text);
+}
+
+.date {
+  margin-bottom: 2px;
+}
+
+.worked-with {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &-title {
+    flex-shrink: 0;
+  }
+
+  &-tag {
+    flex-shrink: 0;
+  }
+}
