@@ -1,13 +1,13 @@
 import React, { ReactNode } from 'react';
 // Styles
-import classes from './headerItem.module.scss';
+import styles from './headerItem.module.scss';
 
 interface Props {
   children: ReactNode;
 }
 
 const HeaderItem = ({ children, ...props }: Props) => {
-  return <div className={classes['root']}>{children}</div>;
+  return <div className={styles['root']}>{children}</div>;
 };
 
 export default HeaderItem;

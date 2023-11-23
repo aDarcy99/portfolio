@@ -3,7 +3,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 // Styles
-import classes from './layout.module.scss';
+import styles from './layout.module.scss';
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,9 +15,9 @@ interface LayoutProps {
 const Layout: FunctionComponent<LayoutProps> = ({ children, className, isHeaderVisible = true, isFooterVisible = true, ...props }) => {
   
   return (
-    <div className={clsx(classes['layout'], className)}>
+    <div className={clsx(styles['layout'], className)}>
       {isHeaderVisible ? <Header /> : null}
-      <main className={clsx(classes['content'])}>{children}</main>
+      <main className={clsx(styles['content'])}>{children}</main>
       {isFooterVisible ? <Footer /> : null}
     </div>
   );

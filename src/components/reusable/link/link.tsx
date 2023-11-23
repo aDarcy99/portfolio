@@ -1,15 +1,15 @@
+import React, { ReactNode, DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
 import clsx from 'clsx';
-import React, { FunctionComponent, ReactNode } from 'react';
 // Styles
-import classes from './link.module.scss';
+import styles from './link.module.scss';
 
-interface LinkProps extends HTMLAnchorElement {
-  className: string;
+interface LinkProps extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
+  variant?: '';
 }
 
-const Link: FunctionComponent<LinkProps> = ({ children, className, ...props }) => {
+const Link = ({ children, className, ...props }: LinkProps) => {
   return (
-    <a className={clsx(classes['link'], className)} {...props}>
+    <a className={clsx(styles['link'], className)} {...props}>
       {children}
     </a>
   );

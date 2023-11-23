@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { FunctionComponent, DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 // Styles
-import classes from './input.module.scss';
+import styles from './input.module.scss';
 
 export interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   className?: string;
@@ -11,14 +11,14 @@ export interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLIn
 
 const Input: FunctionComponent<InputProps> = ({ className, type, leftAdornment, rightAdornment, ...props }) => {
   return (
-    <div className={clsx(classes['input'], className)}>
-      <div className={clsx(classes['input__front'])}>
-        {leftAdornment && <div className={clsx(classes['input__adornment--left'])}>{leftAdornment}</div>}
-        <input className={clsx(classes['input__content'])} type={type} {...props} />
-        {rightAdornment && <div className={clsx(classes['input__adornment--right'])}>{rightAdornment}</div>}
+    <div className={clsx(styles['input'], className)}>
+      <div className={clsx(styles['input__front'])}>
+        {leftAdornment && <div className={clsx(styles['input__adornment--left'])}>{leftAdornment}</div>}
+        <input className={clsx(styles['input__content'])} type={type} {...props} />
+        {rightAdornment && <div className={clsx(styles['input__adornment--right'])}>{rightAdornment}</div>}
       </div>
-      <div className={clsx(classes['input__sides'])} />
-      <div className={clsx(classes['input__shadow'])} />
+      <div className={clsx(styles['input__sides'])} />
+      <div className={clsx(styles['input__shadow'])} />
     </div>
   );
 };

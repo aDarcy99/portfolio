@@ -2,7 +2,7 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps, FunctionComponent, Reac
 // Functions
 import clsx from 'clsx';
 // Styles
-import classes from './button.module.scss';
+import styles from './button.module.scss';
 
 interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   children?: ReactNode;
@@ -13,10 +13,10 @@ interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
 
 const Button: FunctionComponent<ButtonProps> = ({ children, className, size = 'md', width = 'fit-content', ...props }) => {
   return (
-    <button className={clsx(classes['root'], classes[`size-${size}`], classes[`width-${width}`], className)} {...props}>
-      <div className={clsx(classes['shadow'])} />
-      <div className={clsx(classes['side'])} />
-      <div className={clsx(classes['front'])}>{children}</div>
+    <button className={clsx(styles['root'], styles[`size-${size}`], styles[`width-${width}`], className)} {...props}>
+      <div className={clsx(styles['shadow'])} />
+      <div className={clsx(styles['side'])} />
+      <div className={clsx(styles['front'])}>{children}</div>
     </button>
   );
 };
