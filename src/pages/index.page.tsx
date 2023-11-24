@@ -1,25 +1,55 @@
-import React from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 // Types
 import type { NextPage } from 'next';
 // Functions
-import clsx from 'clsx';
+import { useInView } from 'react-intersection-observer';
+import useWindowDimensions from '../utils/hooks/useWindowDimensions';
 // Components
 import Head from 'next/head';
-import Button from '../components/reusable/button/button';
-import Input from '../components/reusable/input/input';
-import Container from '../components/reusable/container/container';
-import Header from '../components/header/header';
-import Project from '../components/project/project';
-import Divider from '../components/reusable/divider/divider';
 import Nav from '../components/nav/nav';
+import Introduction from '../components/pages/home/sections/introduction/introduction';
+import WorkExperience from '../components/pages/home/sections/workExperience/workExperience';
+import ContactMe from '../components/pages/home/sections/contactMe/contactMe';
+import Technologies from '../components/pages/home/sections/technologies/technologies';
+import CreativeProjects from '../components/pages/home/sections/creativeProjects/creativeProjects';
 // Constants
-import builtWithTechologies from '../constants/builtWithTechnologies';
 // Assets
 // Styles
-import classes from './index.module.scss';
-import textClasses from '../styles/classes/text.module.scss';
+import styles from './index.module.scss';
+
+type TSections = '#introduction' | '#technologies' | '#work-experience' | '#creative-projects' | '#contact-me' | '';
 
 const Home: NextPage = () => {
+  const windowDimensions = useWindowDimensions();
+
+  const { ref: introductionRef, inView: introductionInView } = useInView({ threshold: 1 });
+  const { ref: technologiesRef, inView: technologiesInView } = useInView({ threshold: 1 });
+  const { ref: workExperienceRef, inView: workExperienceInView } = useInView({ threshold: 1 });
+  const { ref: creativeProjectsRef, inView: creativeProjectsInView } = useInView({ threshold: 1 });
+  const { ref: contactMeRef, inView: contactMeInView } = useInView({ threshold: 1 });
+
+  const inViews = useMemo<Array<{ label: TSections; isInView: any }>>(
+    () => [
+      { label: '#introduction', isInView: introductionInView },
+      { label: '#technologies', isInView: technologiesInView },
+      { label: '#work-experience', isInView: workExperienceInView },
+      { label: '#creative-projects', isInView: creativeProjectsInView },
+      { label: '#contact-me', isInView: contactMeInView },
+    ],
+    [introductionInView, technologiesInView, workExperienceInView, creativeProjectsInView, contactMeInView]
+  );
+
+  const [currentSection, setCurrentSection] = useState<TSections>('');
+
+  useEffect(() => {
+    for (const view of inViews) {
+      if (view.isInView) {
+        setCurrentSection(view.label);
+        break;
+      }
+    }
+  }, [inViews]);
+
   return (
     <>
       <Head>
@@ -27,92 +57,14 @@ const Home: NextPage = () => {
         <meta name='description' content='' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className={classes['root']}>
-        <Nav />
-        <main className={classes['main']}>
-          {/* <h1 className={clsx(classes['title'], textClasses['title-text'])}>Lachlan D'Arcy</h1> */}
-          <section className={classes['section']}>
-            <h2 className={classes['heading']} id='technologies'>
-              Technologies
-            </h2>
-            <p>
-              I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-              in an interactive and collaborative environment to develop quality websites.
-            </p>
-          </section>
-          <section className={classes['section']}>
-            <h2 className={classes['heading']} id='work-experience'>
-              Work experience
-            </h2>
-            <p>
-              I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-              in an interactive and collaborative environment to develop quality websites.
-            </p>
-          </section>
-          <section className={classes['section']}>
-            <h2 className={classes['heading']} id='creative-projects'>
-              Creative projects
-            </h2>
-            <Project
-              project={{
-                title: 'Your Chances',
-                description: `I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-                in an interactive and collaborative environment to develop quality websites.`,
-                links: {
-                  demo: '/',
-                  github: '/',
-                },
-                builtWithTechnologies: [builtWithTechologies['javascript']],
-              }}
-            />
-            <Project
-              project={{
-                title: 'Simple Typing Test',
-                description: `I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-                in an interactive and collaborative environment to develop quality websites.`,
-                links: {
-                  demo: '/',
-                  github: '/',
-                },
-                builtWithTechnologies: [builtWithTechologies['javascript'], builtWithTechologies['css'], builtWithTechologies['html']],
-              }}
-            />
-            <Project
-              project={{
-                title: 'Portfolio',
-                description: `I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-                in an interactive and collaborative environment to develop quality websites.`,
-                links: {
-                  demo: '/',
-                  github: '/',
-                },
-                builtWithTechnologies: [
-                  builtWithTechologies['javascript'],
-                  builtWithTechologies['react'],
-                  builtWithTechologies['nextJs'],
-                  builtWithTechologies['jss'],
-                ],
-              }}
-            />
-          </section>
-          <section className={classes['section']}>
-            <h2 className={classes['heading']} id='about-me'>
-              About me
-            </h2>
-            <p>
-              I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-              in an interactive and collaborative environment to develop quality websites.
-            </p>
-          </section>
-          <section className={classes['section']}>
-            <h2 className={classes['heading']} id='contact-me'>
-              Contact me
-            </h2>
-            <p>
-              I’m a passionate Full-Stack Web Developer looking for work as a full-stack or front-end developer. I’m looking forward to expanding my knowledge
-              in an interactive and collaborative environment to develop quality websites.
-            </p>
-          </section>
+      <div className={styles['root']}>
+        <Nav currentSection={currentSection} />
+        <main className={styles['main']}>
+          <Introduction ref={introductionRef} />
+          <Technologies ref={technologiesRef} />
+          <WorkExperience ref={workExperienceRef} />
+          <CreativeProjects ref={creativeProjectsRef} />
+          <ContactMe ref={contactMeRef} />
         </main>
       </div>
     </>
