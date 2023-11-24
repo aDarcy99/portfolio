@@ -1,4 +1,5 @@
 import React from 'react';
+import DatabaseIcon from '../static/icons/technologies/database';
 // Assets
 import {
   GithubIcon,
@@ -22,25 +23,28 @@ import {
   WebpackIcon,
 } from '../static/icons/technologies/index';
 
-export default {
-  github: { label: 'Github', icon: <GithubIcon /> },
-  babel: { label: 'Babel', icon: <BabelIcon /> },
-  css: { label: 'Babel', icon: <CssIcon /> },
-  ejs: { label: 'EJS', icon: <EjsIcon /> },
-  express: { label: 'Express', icon: <ExpressIcon /> },
+const builtWithTechnologies = {
   html: { label: 'HTML', icon: <HtmlIcon /> },
+  css: { label: 'CSS', icon: <CssIcon /> },
   javascript: { label: 'Javascript', icon: <JavascriptIcon /> },
-  jss: { label: 'JSS', icon: <JssIcon /> },
-  materialUi: { label: 'Material UI', icon: <MaterialUiIcon /> },
-  monogDB: { label: 'MongoDB', icon: <MongoIcon /> },
-  nextJs: { label: 'NextJs', icon: <NextJsIcon /> },
-  nodeJs: { label: 'NodeJs', icon: <NodeJsIcon /> },
-  none: { label: 'None', icon: <NoneIcon /> },
-  npm: { label: 'NPM', icon: <NpmIcon /> },
-  photoshop: { label: 'Photoshop', icon: <PhotoshopIcon /> },
-  figma: { label: 'Figma', icon: '' },
-  python: { label: 'Python', icon: <PythonIcon /> },
   react: { label: 'React', icon: <ReactIcon /> },
-  styledComponents: { label: 'Styled Components', icon: <StyledComponentsIcon /> },
+  nextJs: { label: 'NextJs', icon: <NextJsIcon /> },
+  babel: { label: 'Babel', icon: <BabelIcon /> },
   webpack: { label: 'Webpack', icon: <WebpackIcon /> },
+  jss: { label: 'JSS', icon: <JssIcon /> },
+  github: { label: 'Github', icon: <GithubIcon /> },
+  styledComponents: { label: 'Styled Components', icon: <StyledComponentsIcon /> },
+  materialUi: { label: 'Material UI', icon: <MaterialUiIcon /> },
+  nodeJs: { label: 'NodeJs', icon: <NodeJsIcon /> },
+  express: { label: 'Express', icon: <NoneIcon /> },
+  ejs: { label: 'EJS', icon: <EjsIcon /> },
+  monogDB: { label: 'MongoDB', icon: <MongoIcon /> },
+  SQL: { label: 'SQL', icon: <DatabaseIcon /> },
+  mySQL: { label: 'MySQL', icon: <DatabaseIcon /> },
+  PostgreSQL: { label: 'PostgreSQL', icon: <DatabaseIcon /> },
+  python: { label: 'Python', icon: <PythonIcon /> },
+  figma: { label: 'Figma', icon: <NoneIcon /> },
+  photoshop: { label: 'Photoshop', icon: <PhotoshopIcon /> },
 };
+
+export default builtWithTechnologies;
