@@ -1,58 +1,46 @@
-/* 
-##Device = Desktops
-##Screen = 1281px to higher resolution desktops
-*/
+// Desktops - 1281px to infinite
 @mixin desktops {
   @media (min-width: 1281px) {
     @content;
   }
 }
-/* 
-  ##Device = Laptops, Desktops
-  ##Screen = B/w 1025px to 1280px
-  */
+
+// Laptops/small desktops - 1025px to 1280px
 @mixin laptops {
   @media (max-width: 1280px) {
     @content;
   }
 }
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 992px to 1024px
-  */
+
+// Tablets (Landscape) - 992px to 1024px
 @mixin tablet-landscape {
   @media (max-width: 1024px) {
     @content;
   }
 }
-/* 
-  ##Device = Tablets, Ipads (portrait)
-  ##Screen = B/w 992px to 1024px
-  */
+
+// Tablets (Portrait) - 767px to 992px
 @mixin tablet-portrait {
   @media (max-width: 992px) {
     @content;
   }
 }
-/* 
-  ##Device = Low Resolution Tablets, Mobiles (Landscape)
-  ##Screen = B/w 481px to 767px
-  */
+
+// Small tablets - 481px to 767px
 @mixin tablet-sm {
   @media (max-width: 767px) {
     @content;
   }
 }
-/* 
-  ##Device = Most of the Smartphones Mobiles (Portrait)
-  ##Screen = B/w 320px to 479px
-  */
+
+// Phones - 376px to 480px
 @mixin phone {
   @media (max-width: 480px) {
     @content;
   }
 }
 
+// Small Phones - 0 to 375px
 @mixin phone-sm {
   @media (max-width: 375px) {
     @content;
