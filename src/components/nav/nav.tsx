@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, CSSProperties, useCallback } from 'react';
 // Functions
 import clsx from 'clsx';
-import { isNil } from '../../utils/general';
 // Components
 import NavItem from './navItem/navItem';
 // Assets
@@ -32,23 +31,6 @@ const Nav = ({ currentSection }: Props) => {
   const navItemRefs = useRef<Array<{ id: string; element: HTMLAnchorElement }>>([]);
 
   const [activeItemStyles, setActiveItemStyles] = useState<CSSProperties>({});
-
-  // NOTE: removed on hover affect for now
-  // useEffect(() => {
-  //   if (isNil(hoveredNavIdx) || activeNavIdx === hoveredNavIdx) {
-  //     setHoverItemStyles((hoverItemStyles) => ({ ...hoverItemStyles, opacity: 0 }));
-  //     return;
-  //   }
-
-  //   const hoveredNavElement = navItemRefs.current[hoveredNavIdx!];
-
-  //   const hoveredNavElementDimensions = hoveredNavElement.getBoundingClientRect();
-
-  //   setHoverItemStyles({
-  //     top: hoveredNavElement.offsetTop - 5 + hoveredNavElementDimensions.height / 2,
-  //     opacity: 1,
-  //   });
-  // }, [hoveredNavIdx, activeNavIdx]);
 
   useEffect(() => {
     const activeNavItem = navItemRefs.current.find((item) => item.id === currentSection);
