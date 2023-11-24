@@ -15,7 +15,7 @@ type TWorkExperienceProps = {};
 type TJobs = Array<{}>;
 const jobs = [
   {
-    company: 'howtoo',
+    company: 'Howtoo',
     positions: [
       {
         title: 'Full-stack Developer',
