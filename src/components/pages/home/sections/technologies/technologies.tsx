@@ -19,7 +19,7 @@ const Technologies = forwardRef((props: TTechnologiesProps, ref: ForwardedRef<HT
       <h2 id='technologies' className={clsx(textStyles['heading-text'], styles['heading'])}>
         Technologies
       </h2>
-      <p>I&apos;ve used these technologies so far, but I&apos;m always open to expanding my toolset and learning new things!</p>
+      <p>Heres most of the technologies I&apos;ve worked with so far, but I&apos;m always open to expanding my toolset and learning new things!</p>
       <div className={styles['technology-list']}>
         {knownTechnologies.map((technology) => (
           <TechnologyTag key={technology.label} builtWithTechnology={technology} />
