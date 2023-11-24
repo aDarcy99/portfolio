@@ -53,7 +53,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>My place</title>
+        <title>Lachlan D&apos;Arcy</title>
         <meta name='description' content='' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
