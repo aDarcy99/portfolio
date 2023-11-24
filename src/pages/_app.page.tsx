@@ -1,16 +1,16 @@
+import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 // Functions
 // Components
-import EditorProvider from './editor/editorContext/editorContext';
 // Styles
 import '../styles/Global.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <EditorProvider>
-      <Component {...pageProps} />
-    </EditorProvider>
-  );
+  useEffect(() => {
+    document.documentElement.className = 'theme--dark';
+  }, []);
+
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
