@@ -2,7 +2,7 @@ import React, { FunctionComponent, ReactNode, forwardRef } from 'react';
 // Functions
 import clsx from 'clsx';
 // Styles
-import classes from './menu.module.scss';
+import styles from './menu.module.scss';
 
 interface MenuProps {
   className?: string;
@@ -12,9 +12,9 @@ interface MenuProps {
 
 const Menu: FunctionComponent<MenuProps> = ({ children, className, node }) => {
   return (
-    <span className={clsx(classes['menu__container'])}>
+    <span className={clsx(styles['menu__container'])}>
       {node}
-      <div className={clsx(classes['menu'], className)}>{children}</div>
+      <div className={clsx(styles['menu'], className)}>{children}</div>
     </span>
   );
 };

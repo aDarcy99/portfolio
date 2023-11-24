@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { FunctionComponent, ReactNode } from 'react';
 // Styles
-import classes from './container.module.scss';
+import styles from './container.module.scss';
 
 interface ContainerProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface ContainerProps {
 }
 
 const Container: FunctionComponent<ContainerProps> = ({ children, width = 'md', className }) => {
-  return <div className={clsx(classes['root'], classes[`root--width-${width}`], className)}>{children}</div>;
+  return <div className={clsx(styles['root'], styles[`root--width-${width}`], className)}>{children}</div>;
 };
 
 export default Container;
