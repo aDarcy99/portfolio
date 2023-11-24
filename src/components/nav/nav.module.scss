@@ -1,8 +1,14 @@
+@import '../../styles/media.scss';
+
 .root {
   position: sticky;
   top: 40px;
   flex-shrink: 0;
-  width: 320px;
+  padding: 0 16px 0 32px;
+
+  @include tablet-sm {
+    display: none;
+  }
 }
 
 .title-container {
@@ -10,6 +16,11 @@
   display: flex;
   margin-bottom: 16px;
   margin-left: 32px;
+}
+
+.subtitle {
+  margin-left: 32px;
+  margin-bottom: 40px;
 }
 
 .nav {
@@ -23,19 +34,20 @@
 .slider {
   z-index: -1;
   position: absolute;
-  transition: 0.4s all cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: 0.2s all;
 
   &--hover {
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    right: -10px;
     background-color: #dee2e6;
+    opacity: 0.5;
   }
 
   &--active {
     width: 100%;
     border-radius: 4px;
     background-color: #dee2e6;
+    opacity: 0.2;
   }
 }

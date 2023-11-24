@@ -11,99 +11,85 @@ import PersonIcon from '../../static/icons/personIcon';
 import MailIcon from '../../static/icons/socials/mailIcon';
 import MonitorIcon from '../../static/icons/monitorIcon';
 // Styles
-import classes from './nav.module.scss';
-import textClasses from '../../styles/classes/text.module.scss';
+import styles from './nav.module.scss';
+import textStyles from '../../styles/text.module.scss';
 
-type Props = {};
+type Props = {
+  currentSection: string;
+};
 
 const navItems = [
   { id: '#technologies', name: 'Technologies', icon: <MonitorIcon /> },
   { id: '#work-experience', name: 'Work experience', icon: <BriefcaseIcon /> },
   { id: '#creative-projects', name: 'Creative projects', icon: <FlaskIcon /> },
-  { id: '#about-me', name: 'About me', icon: <PersonIcon /> },
+  // { id: '#about-me', name: 'About me', icon: <PersonIcon /> },
   { id: '#contact-me', name: 'Contact me', icon: <MailIcon /> },
 ];
 
-const Nav = (props: Props) => {
+const Nav = ({ currentSection }: Props) => {
   const navRef = useRef<HTMLElement>(null);
 
-  const navItemRefs = useRef<Array<HTMLAnchorElement>>([]);
+  const navItemRefs = useRef<Array<{ id: string; element: HTMLAnchorElement }>>([]);
 
-  const [activeNavIdx, setActiveNavIdx] = useState<undefined | number>(undefined);
-  const [hoveredNavIdx, setHoveredNavIdx] = useState<undefined | number>(undefined);
-  const [hoverItemStyles, setHoverItemStyles] = useState<CSSProperties>({});
   const [activeItemStyles, setActiveItemStyles] = useState<CSSProperties>({});
 
-  const onNavItemHover = useCallback((hoveredIdx: number | undefined) => {
-    setHoveredNavIdx(hoveredIdx);
-  }, []);
-
-  const onNavItemClick = (activeIdx: number) => {
-    setActiveNavIdx(activeIdx);
-  };
-
   // NOTE: removed on hover affect for now
+  // useEffect(() => {
+  //   if (isNil(hoveredNavIdx) || activeNavIdx === hoveredNavIdx) {
+  //     setHoverItemStyles((hoverItemStyles) => ({ ...hoverItemStyles, opacity: 0 }));
+  //     return;
+  //   }
+
+  //   const hoveredNavElement = navItemRefs.current[hoveredNavIdx!];
+
+  //   const hoveredNavElementDimensions = hoveredNavElement.getBoundingClientRect();
+
+  //   setHoverItemStyles({
+  //     top: hoveredNavElement.offsetTop - 5 + hoveredNavElementDimensions.height / 2,
+  //     opacity: 1,
+  //   });
+  // }, [hoveredNavIdx, activeNavIdx]);
+
   useEffect(() => {
-    if (isNil(hoveredNavIdx) || activeNavIdx === hoveredNavIdx) {
-      setHoverItemStyles((hoverItemStyles) => ({ ...hoverItemStyles, opacity: 0 }));
-      return;
-    }
+    const activeNavItem = navItemRefs.current.find((item) => item.id === currentSection);
 
-    const hoveredNavElement = navItemRefs.current[hoveredNavIdx!];
-
-    const hoveredNavElementDimensions = hoveredNavElement.getBoundingClientRect();
-
-    setHoverItemStyles({
-      top: hoveredNavElement.offsetTop - 5 + hoveredNavElementDimensions.height / 2,
-      opacity: 1,
-    });
-  }, [hoveredNavIdx, activeNavIdx]);
-
-  useEffect(() => {
-    if (isNil(activeNavIdx)) {
+    if (activeNavItem === undefined) {
       setActiveItemStyles((activeItemStyles) => ({ ...activeItemStyles, opacity: 0 }));
       return;
     }
 
-    const activeNavElement = navItemRefs.current[activeNavIdx!];
+    const activeNavElement = activeNavItem.element;
 
     const activeNavElementDimensions = activeNavElement.getBoundingClientRect();
-
-    const backgroundColor = activeNavElement.getAttribute('data-color') ?? 'white';
 
     setActiveItemStyles({
       top: activeNavElement.offsetTop,
       width: activeNavElementDimensions.width,
       height: activeNavElementDimensions.height,
-      opacity: 1,
     });
-  }, [activeNavIdx]);
+  }, [currentSection]);
 
   return (
-    <div className={classes['root']}>
-      <a className={clsx(classes['title-container'])} href='#home'>
-        <h1 className={textClasses['title-text']}>Lachlan D&apos;Arcy</h1>
+    <div className={styles['root']}>
+      <a className={clsx(styles['title-container'])} href='#home'>
+        <h1 className={textStyles['title-text']}>Lachlan D&apos;Arcy</h1>
       </a>
-      <p className={textClasses['subtitle-text']}>Full-stack developer</p>
-
-      {/* <p>Full-stack developer</p> */}
-      <nav ref={navRef} className={classes['nav']}>
+      <p className={clsx(styles['subtitle'], textStyles['subtitle-text'])}>Full-stack developer</p>
+      <nav ref={navRef} className={styles['nav']}>
         {navItems.map((item, idx) => (
           <NavItem
             key={item.name}
-            ref={(element) => (element ? (navItemRefs.current[idx] = element) : null)}
+            ref={(element) => (element ? (navItemRefs.current[idx] = { id: item.id, element }) : null)}
             index={idx}
-            isActive={activeNavIdx === idx}
-            onHover={onNavItemHover}
-            onClick={() => onNavItemClick(idx)}
+            isActive={currentSection === item.id}
             href={item.id}
           >
             {item.icon}
-            <p>{item.name}</p>
+            {item.name}
           </NavItem>
         ))}
-        <div className={clsx(classes['slider'], classes['slider--hover'])} style={{ ...hoverItemStyles }} />
-        <div className={clsx(classes['slider'], classes['slider--active'])} style={{ ...activeItemStyles }} />
+        {/* <div className={clsx(styles['slider'], styles['slider--hover'])} style={{ ...hoverItemStyles }} /> */}
+        <div className={clsx(styles['slider'], styles['slider--active'])} style={{ ...activeItemStyles }} />
       </nav>
     </div>
   );

@@ -15,16 +15,11 @@
     path {
       transition: 0.4s all;
 
-      background-color: #868e96;
+      stroke: #dadada;
       stroke-dasharray: 1;
       stroke-dashoffset: 1;
       stroke-dashoffset: 1;
     }
-  }
-
-  p {
-    transition: 0.4s all;
-    color: #868e96;
   }
 
   &:hover,
