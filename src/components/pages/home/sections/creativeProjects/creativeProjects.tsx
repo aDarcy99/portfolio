@@ -6,7 +6,7 @@ import Project from './project/project';
 // Constants
 import builtWithTechnologies from '../../../../../constants/builtWithTechnologies';
 // Styles
-import styles from './creativeprojects.module.scss';
+import styles from './creativeProjects.module.scss';
 import textStyles from '../../../../../styles/text.module.scss';
 
 type TCreativeProjectsProps = {};
