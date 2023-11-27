@@ -18,9 +18,9 @@ type Props = {
 };
 
 const navItems = [
-  { id: '#technologies', name: 'Technologies', icon: <MonitorIcon /> },
   { id: '#work-experience', name: 'Work experience', icon: <BriefcaseIcon /> },
   { id: '#creative-projects', name: 'Creative projects', icon: <FlaskIcon /> },
+  { id: '#technologies', name: 'Technologies', icon: <MonitorIcon /> },
   // { id: '#about-me', name: 'About me', icon: <PersonIcon /> },
   { id: '#contact-me', name: 'Contact me', icon: <MailIcon /> },
 ];

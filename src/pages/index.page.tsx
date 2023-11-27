@@ -61,9 +61,9 @@ const Home: NextPage = () => {
         <Nav currentSection={currentSection} />
         <main className={styles['main']}>
           <Introduction ref={introductionRef} />
-          <Technologies ref={technologiesRef} />
           <WorkExperience ref={workExperienceRef} />
           <CreativeProjects ref={creativeProjectsRef} />
+          <Technologies ref={technologiesRef} />
           <ContactMe ref={contactMeRef} />
         </main>
       </div>
