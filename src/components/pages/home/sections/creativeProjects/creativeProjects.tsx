@@ -38,7 +38,7 @@ const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: Forward
           title: 'Timeflit',
           description: `
               A todo web app that allows you to both make and track time estimates for tasks.`,
-          links: { demo: '', github: '' },
+          links: { demo: 'adarcy99.github.io/timeflit/', github: 'github.com/aDarcy99/timeflit' },
           builtWithTechnologies: [builtWithTechnologies['react'], builtWithTechnologies['sass'], builtWithTechnologies['webpack']],
         }}
       />
@@ -66,7 +66,7 @@ const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: Forward
           title: 'Portfolio Site',
           description: `
               A portfolio website showcasing my work and contact information.`,
-          links: { demo: 'lachlandarcy.com', github: '' },
+          links: { demo: 'lachlandarcy.com', github: 'github.com/aDarcy99/portfolio' },
           builtWithTechnologies: [builtWithTechnologies['react']],
         }}
       />
