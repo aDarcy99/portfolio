@@ -23,7 +23,7 @@ const Project = ({ project, ...props }: IProjectProps) => {
   const { title, description, links, builtWithTechnologies } = project;
 
   return (
-    <FancyContainer className={styles['root']}>
+    <FancyContainer rootProps={{ className: styles['root'] }} innerProps={{ className: styles['inner'] }}>
       <img className={styles['image']} src='' alt='' />
       <div className={styles['content']}>
         <h3 className={styles['title']}>{title}</h3>

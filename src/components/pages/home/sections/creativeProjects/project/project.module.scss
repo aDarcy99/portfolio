@@ -1,8 +1,11 @@
 .root {
+  margin-bottom: 8px;
+}
+
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 8px;
   background-color: var(--color-background);
 }
 
@@ -30,6 +33,7 @@
 
   .built-with {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 12px;
 
