@@ -22,6 +22,9 @@ import {
   StyledComponentsIcon,
   WebpackIcon,
 } from '../static/icons/technologies/index';
+import SassIcon from '../static/icons/technologies/sassIcon';
+import SocketIcon from '../static/icons/technologies/socketIcon';
+import TailwindIcon from '../static/icons/technologies/tailwindIcon';
 
 const builtWithTechnologies = {
   html: { label: 'HTML', icon: <HtmlIcon /> },
@@ -40,11 +43,14 @@ const builtWithTechnologies = {
   ejs: { label: 'EJS', icon: <EjsIcon /> },
   monogDB: { label: 'MongoDB', icon: <MongoIcon /> },
   SQL: { label: 'SQL', icon: <DatabaseIcon /> },
-  mySQL: { label: 'MySQL', icon: <DatabaseIcon /> },
-  PostgreSQL: { label: 'PostgreSQL', icon: <DatabaseIcon /> },
+  socket: { label: 'Socket.io', icon: <SocketIcon /> },
+  sass: { label: 'Sass', icon: <SassIcon /> },
+  tailwind: { label: 'Tailwind', icon: <TailwindIcon /> },
+  // mySQL: { label: 'MySQL', icon: <DatabaseIcon /> },
+  // PostgreSQL: { label: 'PostgreSQL', icon: <DatabaseIcon /> },
   python: { label: 'Python', icon: <PythonIcon /> },
   figma: { label: 'Figma', icon: <NoneIcon /> },
-  photoshop: { label: 'Photoshop', icon: <PhotoshopIcon /> },
+  // photoshop: { label: 'Photoshop', icon: <PhotoshopIcon /> },
 };
 
 export default builtWithTechnologies;
