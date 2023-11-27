@@ -49,7 +49,7 @@ const WorkExperience = forwardRef((props: TWorkExperienceProps, ref: ForwardedRe
         Work Experience
       </h2>
       {jobs.map((job, jobIdx) => (
-        <FancyContainer key={jobIdx} className={styles['job']}>
+        <FancyContainer key={jobIdx} rootProps={{ className: styles['job'] }}>
           {job.positions.map((position, positionIdx) => (
             <div key={positionIdx} className={styles['position']}>
               <div className={styles['info-container']}>
