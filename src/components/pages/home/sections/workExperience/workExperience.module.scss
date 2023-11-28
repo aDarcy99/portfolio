@@ -33,6 +33,12 @@
   margin-bottom: 2px;
 }
 
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .worked-with {
   display: flex;
   gap: 8px;
