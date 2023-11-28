@@ -1,0 +1,14 @@
+.reveal {
+  overflow: hidden;
+  max-height: 999px;
+
+  transition: max-height 0.5s;
+
+  &.is-reveal-hidden {
+    max-height: 100px;
+  }
+}
+
+.button {
+  margin-top: 4px;
+}

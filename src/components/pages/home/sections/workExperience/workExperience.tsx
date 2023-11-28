@@ -4,6 +4,7 @@ import clsx from 'clsx';
 // Components
 import FancyContainer from '../../../../fancyContainer/fancyContainer';
 import TechnologyTag from '../../technologyTag/technologyTag';
+import ReadMore from '../../../../reusable/readMore/readMore';
 // Constants
 import builtWithTechnologies from '../../../../../constants/builtWithTechnologies';
 // Styles
@@ -20,14 +21,42 @@ const jobs = [
       {
         title: 'Full-stack Developer',
         dates: { start: 'June 2022', finish: 'April 2023' },
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et nunc tempor, eleifend leo ac, maximus elit. Donec rutrum, nulla at varius venenatis,
-    nisl sapien aliquet leo, venenatis viverra eros mauris eget turpis.`,
+        description: (
+          <>
+            <p>At the same company, I served as a full-stack developer, contributing to all facets of the product we offered.</p>
+            <p>
+              In this role, I gained valuable insights into the impact of my code, becoming more aware of the concept of technical debt and its consequences.
+              Additionally, I deepened my understanding of the libraries we used such as the Sequelize ORM, Segment for analytics, and AJV schema validation. I
+              also had the opportunity to work with AWS and AWS Lambda, albeit at a more surface level.
+            </p>
+            <p>
+              Throughout my tenure, I played a key role in implementing major features and making significant changes to the functionality of our product. This
+              involved thoughtful consideration of database schema modifications, seamless migration to new schemas, and managing potential breaking changes to
+              the UI—all while causing minimal downtime in production.
+            </p>
+          </>
+        ),
       },
       {
         title: 'Front-end Developer',
-        dates: { start: 'June 2022', finish: 'April 2023' },
-        description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et nunc tempor, eleifend leo ac, maximus elit. Donec rutrum, nulla at varius venenatis,
-    nisl sapien aliquet leo, venenatis viverra eros mauris eget turpis.`,
+        dates: { start: 'October 2021', finish: 'June 2022' },
+        description: (
+          <>
+            <p>
+              As my first job as a developer this introduced me to the complexities of collaborative development within a team setting. This mainly involved
+              using effective version control practices, adapting to the teams coding stlye and established guidelines, as well as commuinicating with
+              designers.
+            </p>
+            <p>
+              I learnt how to better use version control within a team, many different libraries and frameworks such as web components, and a greater understand
+              of how react works.
+            </p>
+            <p>
+              My main achievement in this role was contributing to the creation of a design system for the product. This system evolved over my tenure at the
+              company and became integral to the application&apos;s functionality.
+            </p>
+          </>
+        ),
       },
     ],
     technologies: [
@@ -60,7 +89,7 @@ const WorkExperience = forwardRef((props: TWorkExperienceProps, ref: ForwardedRe
               <h4 className={styles['date']}>
                 {position.dates.start} – {position.dates.finish}
               </h4>
-              <p>{position.description}</p>
+              <ReadMore revealProps={{ className: styles['description'] }}>{position.description}</ReadMore>
             </div>
           ))}
 
