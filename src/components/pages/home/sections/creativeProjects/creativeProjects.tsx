@@ -5,6 +5,9 @@ import clsx from 'clsx';
 import Project from './project/project';
 // Constants
 import builtWithTechnologies from '../../../../../constants/builtWithTechnologies';
+// Assets
+import timeflitShowcaseImg from '../../../../../static/images/timeflitShowcase.png';
+import portfolioShowcaseImg from '../../../../../static/images/portfolioShowcase.png';
 // Styles
 import styles from './creativeProjects.module.scss';
 import textStyles from '../../../../../styles/text.module.scss';
@@ -36,9 +39,10 @@ const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: Forward
       <Project
         project={{
           title: 'Timeflit',
+          image: timeflitShowcaseImg,
           description: `
               A todo web app that allows you to both make and track time estimates for tasks.`,
-          links: { demo: 'adarcy99.github.io/timeflit/', github: 'github.com/aDarcy99/timeflit' },
+          links: { demo: 'https://adarcy99.github.io/timeflit/', github: 'https://github.com/aDarcy99/timeflit/' },
           builtWithTechnologies: [builtWithTechnologies['react'], builtWithTechnologies['sass'], builtWithTechnologies['webpack']],
         }}
       />
@@ -64,9 +68,10 @@ const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: Forward
       <Project
         project={{
           title: 'Portfolio Site',
+          image: portfolioShowcaseImg,
           description: `
               A portfolio website showcasing my work and contact information.`,
-          links: { demo: 'lachlandarcy.com', github: 'github.com/aDarcy99/portfolio' },
+          links: { demo: 'https://lachlandarcy.com/', github: 'https://github.com/aDarcy99/portfolio' },
           builtWithTechnologies: [builtWithTechnologies['react']],
         }}
       />
