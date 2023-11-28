@@ -6,10 +6,12 @@ import FancyContainer from '../../../../../fancyContainer/fancyContainer';
 import Button from '../../../../../reusable/button/button';
 // Style
 import styles from './project.module.scss';
+import Image, { StaticImageData } from 'next/image';
 
 interface IProjectProps {
   project: {
     title: string;
+    image: StaticImageData;
     description: ReactNode;
     links: {
       demo: string;
@@ -20,11 +22,13 @@ interface IProjectProps {
 }
 
 const Project = ({ project, ...props }: IProjectProps) => {
-  const { title, description, links, builtWithTechnologies } = project;
+  const { title, image, description, links, builtWithTechnologies } = project;
 
   return (
     <FancyContainer rootProps={{ className: styles['root'] }} innerProps={{ className: styles['inner'] }}>
-      <img className={styles['image']} src='' alt='' />
+      <a href={links.demo} target='_blank' rel='noreferrer'>
+        <Image className={styles['image']} src={image} alt={`${title} showcase`} />
+      </a>
       <div className={styles['content']}>
         <h3 className={styles['title']}>{title}</h3>
         <p className={styles['description']}>{description}</p>
@@ -37,11 +41,11 @@ const Project = ({ project, ...props }: IProjectProps) => {
           ))}
         </div>
         <div className={styles['button-group']}>
-          <Link href={links.demo}>
+          <Link href={links.demo} target='_blank' rel='noreferrer'>
             <Button>Demo</Button>
           </Link>
-          <Link href={links.github}>
-            <Button>Github</Button>
+          <Link href={links.github} target='_blank' rel='noreferrer'>
+            <Button variant='outlined'>Github</Button>
           </Link>
         </div>
       </div>
