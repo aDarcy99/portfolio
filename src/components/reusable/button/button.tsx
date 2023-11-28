@@ -8,15 +8,18 @@ interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonE
   children?: ReactNode;
   className?: string;
   size?: 'sm' | 'md' | 'lg';
+  variant?: 'solid' | 'outlined' | 'transparent';
   width?: 'fit-content' | 'fit-container';
+  color?: 'purple' | 'white';
 }
 
-const Button: FunctionComponent<ButtonProps> = ({ children, className, size = 'md', width = 'fit-content', ...props }) => {
+const Button: FunctionComponent<ButtonProps> = ({ children, className, size = 'md', width = 'fit-content', variant = 'solid', color = 'purple', ...props }) => {
   return (
-    <button className={clsx(styles['root'], styles[`size-${size}`], styles[`width-${width}`], className)} {...props}>
-      <div className={clsx(styles['shadow'])} />
-      <div className={clsx(styles['side'])} />
-      <div className={clsx(styles['front'])}>{children}</div>
+    <button
+      className={clsx(styles['root'], styles[`size-${size}`], styles[`width-${width}`], styles[`variant-${variant}`], styles[`color-${color}`], className)}
+      {...props}
+    >
+      {children}
     </button>
   );
 };

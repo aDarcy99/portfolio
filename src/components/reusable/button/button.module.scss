@@ -5,64 +5,67 @@
   border-radius: 2px;
   user-select: none;
 
-  &:hover {
-    .front {
-      transform: translateY(-6px);
-    }
-    .shadow {
-      transform: translateY(5px);
-    }
-  }
-
-  &:active {
-    .front {
-      transform: translate(0px, -2px);
-    }
-    .shadow {
-      transform: translateY(2px);
-    }
-  }
-}
-
-.front {
-  transform: translateY(-5px);
   display: flex;
   justify-content: center;
   padding: 8px 16px;
-  border-radius: 2px;
-  border: 1px solid darken(#845ef7, 10);
-  transition: transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1);
-  color: white;
-
   font-weight: 700;
-  background-color: #845ef7;
-}
+  border-radius: 8px;
 
-.side {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  bottom: 0px;
-  border-radius: 2px;
-  border: 1px solid darken(#845ef7, 10);
-
-  background-color: darken(#845ef7, 5);
-}
-
-.shadow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  bottom: 0px;
-  transform: translateY(4px);
-  border-radius: 2px;
   transition: transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1);
-
-  filter: blur(3px);
-  background-color: rgba(27, 22, 48, 0.2);
 }
 
-//
+.variant {
+  &-solid {
+    color: var(--color-paragraph-text);
+    background-color: rgb(63, 94, 251);
+
+    &:hover {
+    }
+
+    &:active {
+    }
+  }
+  &-outlined {
+    color: rgb(63, 94, 251);
+    border: 1px solid rgb(63, 94, 251);
+    background-color: transparent;
+
+    &:hover {
+    }
+
+    &:active {
+    }
+  }
+  &-transparent {
+    &.color {
+      &-purple {
+        color: rgb(63, 94, 251);
+        background-color: transparent;
+
+        &:hover {
+          background-color: rgba(63, 94, 251, 0.05);
+        }
+
+        &:active {
+          background-color: rgba(63, 94, 251, 0.1);
+        }
+      }
+      &-white {
+        color: rgb(255, 255, 251);
+        background-color: transparent;
+
+        &:hover {
+          background-color: rgba(255, 255, 251, 0.05);
+        }
+
+        &:active {
+          background-color: rgba(255, 255, 251, 0.1);
+        }
+      }
+    }
+  }
+}
+
 .size {
   &-sm {
     .front {
