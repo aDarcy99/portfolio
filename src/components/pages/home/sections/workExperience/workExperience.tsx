@@ -23,16 +23,16 @@ const jobs = [
         dates: { start: 'June 2022', finish: 'April 2023' },
         description: (
           <>
-            <p>At the same company, I served as a full-stack developer, contributing to all facets of the product we offered.</p>
+            <p>At the same company, I was promoted to a full-stack developer, and contributed to all facets of the product we offered.</p>
             <p>
               In this role, I gained valuable insights into the impact of my code, becoming more aware of the concept of technical debt and its consequences.
               Additionally, I deepened my understanding of the libraries we used such as the Sequelize ORM, Segment for analytics, and AJV schema validation. I
               also had the opportunity to work with AWS and AWS Lambda, albeit at a more surface level.
             </p>
             <p>
-              Throughout my tenure, I played a key role in implementing major features and making significant changes to the functionality of our product. This
-              involved thoughtful consideration of database schema modifications, seamless migration to new schemas, and managing potential breaking changes to
-              the UI—all while causing minimal downtime in production.
+              Throughout my time in the position I played a key role in implementing major features and making significant changes to the functionality of our
+              product. This involved thoughtful consideration of database schema modifications, seamless migration to new schemas, and managing potential
+              breaking changes to the UI—all while causing minimal downtime in production.
             </p>
           </>
         ),
@@ -52,8 +52,8 @@ const jobs = [
               of how react works.
             </p>
             <p>
-              My main achievement in this role was contributing to the creation of a design system for the product. This system evolved over my tenure at the
-              company and became integral to the application&apos;s functionality.
+              While working in this position my main achievement in this role was contributing to the creation of a design system for the product. This system
+              evolved over my tenure at the company and became integral to the application&apos;s functionality.
             </p>
           </>
         ),
