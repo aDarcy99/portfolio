@@ -1,3 +1,31 @@
 .heading {
   margin-bottom: 16px;
 }
+
+.paragraph {
+  margin-bottom: 16px;
+}
+
+.tag-container {
+  display: flex;
+  gap: 8px;
+}
+
+.tag-wrapper {
+  max-width: 100px;
+  width: 100%;
+}
+
+.tag {
+  flex-direction: column;
+  width: 100%;
+  padding: 8px 12px;
+  gap: 8px;
+
+  --icon-color: var(--color-paragraph-text);
+
+  svg {
+    width: 32px;
+    height: 32px;
+  }
+}
