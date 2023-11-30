@@ -11,7 +11,7 @@
   font-weight: 700;
   border-radius: 8px;
 
-  transition: transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1);
+  transition: all 0.2s cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
 .color {
@@ -42,11 +42,11 @@
     background-color: transparent;
 
     &:hover {
-      background-color: hsla(var(--col-button), 0.05);
+      background-color: hsla(var(--col-button), 0.15);
     }
 
     &:active {
-      background-color: hsla(var(--col-button), 0.1);
+      background-color: hsla(var(--col-button), 0.25);
     }
   }
   &-transparent {
@@ -54,11 +54,11 @@
     background-color: transparent;
 
     &:hover {
-      background-color: hsla(var(--col-button), 0.05);
+      background-color: hsla(var(--col-button), 0.15);
     }
 
     &:active {
-      background-color: hsla(var(--col-button), 0.1);
+      background-color: hsla(var(--col-button), 0.25);
     }
   }
 }
