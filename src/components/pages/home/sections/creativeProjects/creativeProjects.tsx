@@ -43,7 +43,14 @@ const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: Forward
           description: `
               A todo web app that allows you to both make and track time estimates for tasks.`,
           links: { demo: 'https://adarcy99.github.io/timeflit/', github: 'https://github.com/aDarcy99/timeflit/' },
-          builtWithTechnologies: [builtWithTechnologies['react'], builtWithTechnologies['sass'], builtWithTechnologies['webpack']],
+          builtWithTechnologies: [
+            builtWithTechnologies['typescript'],
+            builtWithTechnologies['react'],
+            builtWithTechnologies['sass'],
+            builtWithTechnologies['webpack'],
+            builtWithTechnologies['babel'],
+            builtWithTechnologies['figma'],
+          ],
         }}
       />
       {/* <Project
@@ -72,7 +79,13 @@ const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: Forward
           description: `
               A portfolio website showcasing my work and contact information.`,
           links: { demo: 'https://lachlandarcy.com/', github: 'https://github.com/aDarcy99/portfolio' },
-          builtWithTechnologies: [builtWithTechnologies['react']],
+          builtWithTechnologies: [
+            builtWithTechnologies['typescript'],
+            builtWithTechnologies['react'],
+            builtWithTechnologies['sass'],
+            builtWithTechnologies['nextJs'],
+            builtWithTechnologies['figma'],
+          ],
         }}
       />
     </section>

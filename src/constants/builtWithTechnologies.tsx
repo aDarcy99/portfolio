@@ -25,11 +25,14 @@ import {
 import SassIcon from '../static/icons/technologies/sassIcon';
 import SocketIcon from '../static/icons/technologies/socketIcon';
 import TailwindIcon from '../static/icons/technologies/tailwindIcon';
+import TypescriptIcon from '../static/icons/technologies/typescriptIcon';
+import FigmaIcon from '../static/icons/technologies/typescriptIcon copy';
 
 const builtWithTechnologies = {
   html: { label: 'HTML', icon: <HtmlIcon /> },
   css: { label: 'CSS', icon: <CssIcon /> },
   javascript: { label: 'Javascript', icon: <JavascriptIcon /> },
+  typescript: { label: 'Typescript', icon: <TypescriptIcon /> },
   react: { label: 'React', icon: <ReactIcon /> },
   nextJs: { label: 'NextJs', icon: <NextJsIcon /> },
   babel: { label: 'Babel', icon: <BabelIcon /> },
@@ -49,7 +52,7 @@ const builtWithTechnologies = {
   // mySQL: { label: 'MySQL', icon: <DatabaseIcon /> },
   // PostgreSQL: { label: 'PostgreSQL', icon: <DatabaseIcon /> },
   python: { label: 'Python', icon: <PythonIcon /> },
-  figma: { label: 'Figma', icon: <NoneIcon /> },
+  figma: { label: 'Figma', icon: <FigmaIcon /> },
   // photoshop: { label: 'Photoshop', icon: <PhotoshopIcon /> },
 };
 
