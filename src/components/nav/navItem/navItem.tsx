@@ -27,7 +27,7 @@ const NavItem = forwardRef(({ children, onHover, isActive, index, href, ...props
   }, [isHovered, index, onHover]);
 
   return (
-    <a {...props} ref={navItemRef} className={clsx(styles['root'], textStyles['paragraph-text'], isActive && styles['is-active'])} href={href}>
+    <a {...props} ref={navItemRef} className={clsx(styles['root'], textStyles['paragraph'], isActive && styles['is-active'])} href={href}>
       {children}
     </a>
   );

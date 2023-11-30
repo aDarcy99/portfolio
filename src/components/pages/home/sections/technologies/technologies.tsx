@@ -16,7 +16,7 @@ const knownTechnologies = Object.entries(builtWithTechnologies).map(([_, value])
 const Technologies = forwardRef((props: TTechnologiesProps, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section ref={ref}>
-      <h2 id='technologies' className={clsx(textStyles['heading-text'], styles['heading'])}>
+      <h2 id='technologies' className={clsx(textStyles['heading'], styles['heading'])}>
         Technologies
       </h2>
       <p>Heres most of the relevant technologies I&apos;ve worked with so far, but I&apos;m always open to expanding my toolset and learning new things!</p>

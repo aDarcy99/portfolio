@@ -40,14 +40,14 @@
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    background-color: #dee2e6;
+    background-color: hsl(var(--col-paragraph));
     opacity: 0.5;
   }
 
   &--active {
     width: 100%;
     border-radius: 4px;
-    background-color: #dee2e6;
+    background-color: hsl(var(--col-paragraph));
     opacity: 0.2;
   }
 }

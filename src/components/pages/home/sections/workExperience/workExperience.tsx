@@ -74,7 +74,7 @@ const jobs = [
 const WorkExperience = forwardRef((props: TWorkExperienceProps, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section ref={ref}>
-      <h2 id='work-experience' className={clsx(textStyles['heading-text'], styles['heading'])}>
+      <h2 id='work-experience' className={clsx(textStyles['heading'], styles['heading'])}>
         Work Experience
       </h2>
       {jobs.map((job, jobIdx) => (

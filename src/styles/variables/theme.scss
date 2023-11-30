@@ -1,13 +1,17 @@
 :root {
   &.theme--dark {
-    --color-title-text: #ffd43b;
-    --color-subtitle-text: #f1f3f5;
-    --color-heading-text: #f1f3f5;
-    --color-subheading-text: #f1f3f5;
-    --color-paragraph-text: #dee2e6;
+    // All colors are in HSL format
+    --col-highlight: 47, 100%, 62%;
+    --col-foreground: 230, 96%, 62%;
+    --col-background: 212, 32%, 8%;
+    --col-card: 208, 89%, 12%;
+    --col-icon: 210, 14%, 89%;
 
-    --color-background: #0e141b;
-    --color-card-background: #e9ecef;
+    --col-title: 47, 100%, 62%;
+    --col-subtitle: 210, 17%, 95%;
+    --col-heading: 210, 17%, 95%;
+    --col-subheading: 210, 17%, 95%;
+    --col-paragraph: 210, 14%, 89%;
   }
 
   &.theme--light {

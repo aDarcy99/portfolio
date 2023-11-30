@@ -15,7 +15,7 @@ type Props = {};
 const ContactMe = forwardRef((props: Props, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section ref={ref}>
-      <h2 id='contact-me' className={clsx(textStyles['heading-text'], styles['heading'])}>
+      <h2 id='contact-me' className={clsx(textStyles['heading'], styles['heading'])}>
         Contact me
       </h2>
       <p className={styles['paragraph']}>If you&apos;re interested in working together, consider contacting me through one of these platforms!</p>

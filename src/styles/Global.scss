@@ -27,7 +27,7 @@ body {
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--color-background);
+  background-color: hsl(var(--col-background));
 }
 
 img,
@@ -63,7 +63,7 @@ h5,
 h6 {
   overflow-wrap: break-word;
 
-  color: var(--color-paragraph-text);
+  color: hsl(var(--col-paragraph));
 }
 
 #root,

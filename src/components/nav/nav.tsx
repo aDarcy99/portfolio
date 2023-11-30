@@ -56,7 +56,7 @@ const Nav = ({ currentSection }: Props) => {
       <a className={clsx(styles['title-container'])} href='#home'>
         <h1 className={textStyles['title-text']}>Lachlan D&apos;Arcy</h1>
       </a>
-      <p className={clsx(styles['subtitle'], textStyles['subtitle-text'])}>Full-stack developer</p>
+      <p className={clsx(styles['subtitle'], textStyles['subtitle'])}>Full-stack developer</p>
       <nav ref={navRef} className={styles['nav']}>
         {navItems.map((item, idx) => (
           <NavItem

@@ -14,10 +14,21 @@
   transition: transform 0.2s cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
+.color {
+  &-purple {
+    --col-button: var(--col-foreground);
+    --col-button-contrast: var(--col-paragraph);
+  }
+  &-white {
+    --col-button: var(--col-paragraph);
+    --col-button-contrast: var(--col-background);
+  }
+}
+
 .variant {
   &-solid {
-    color: var(--color-paragraph-text);
-    background-color: rgb(63, 94, 251);
+    color: hsl(var(--col-button-contrast));
+    background-color: hsl(var(--col-button));
 
     &:hover {
     }
@@ -26,42 +37,28 @@
     }
   }
   &-outlined {
-    color: rgb(63, 94, 251);
-    border: 1px solid rgb(63, 94, 251);
+    color: hsl(var(--col-button));
+    border: 1px solid hsl(var(--col-button));
     background-color: transparent;
 
     &:hover {
+      background-color: hsla(var(--col-button), 0.05);
     }
 
     &:active {
+      background-color: hsla(var(--col-button), 0.1);
     }
   }
   &-transparent {
-    &.color {
-      &-purple {
-        color: rgb(63, 94, 251);
-        background-color: transparent;
+    color: hsl(var(--col-button));
+    background-color: transparent;
 
-        &:hover {
-          background-color: rgba(63, 94, 251, 0.05);
-        }
+    &:hover {
+      background-color: hsla(var(--col-button), 0.05);
+    }
 
-        &:active {
-          background-color: rgba(63, 94, 251, 0.1);
-        }
-      }
-      &-white {
-        color: rgb(255, 255, 251);
-        background-color: transparent;
-
-        &:hover {
-          background-color: rgba(255, 255, 251, 0.05);
-        }
-
-        &:active {
-          background-color: rgba(255, 255, 251, 0.1);
-        }
-      }
+    &:active {
+      background-color: hsla(var(--col-button), 0.1);
     }
   }
 }

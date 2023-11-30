@@ -17,7 +17,7 @@ type TCreativeProjectsProps = {};
 const CreativeProjects = forwardRef((props: TCreativeProjectsProps, ref: ForwardedRef<HTMLElement>) => {
   return (
     <section ref={ref}>
-      <h2 id='creative-projects' className={clsx(textStyles['heading-text'], styles['heading'])}>
+      <h2 id='creative-projects' className={clsx(textStyles['heading'], styles['heading'])}>
         Creative Projects
       </h2>
 

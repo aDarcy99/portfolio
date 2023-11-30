@@ -1,13 +1,13 @@
 .title-text {
-  color: var(--color-title-text);
+  color: hsl(var(--col-title));
   font-family: 'Marcellus', serif;
   font-weight: 400;
   font-size: 32px;
   line-height: 120%;
 }
 
-.subtitle-text {
-  color: var(--color-subtitle-text);
+.subtitle {
+  color: hsl(var(--col-subtitle));
 
   font-family: 'Marcellus', serif;
   font-weight: 400;
@@ -16,24 +16,24 @@
   letter-spacing: -0.32px;
 }
 
-.heading-text {
-  color: var(--color-heading-text);
+.heading {
+  color: hsl(var(--col-heading));
   font-family: 'Marcellus', serif;
   font-weight: 400;
   font-size: 24px;
   line-height: 125%;
 }
 
-.paragraph-text {
-  color: var(--color-paragraph-text);
+.paragraph {
+  color: hsl(var(--col-paragraph));
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 165%;
 }
 
-.subparagraph-text {
-  color: var(--color-paragraph-text);
+.subparagraph {
+  color: hsl(var(--col-paragraph));
   font-family: 'Manrope', sans-serif;
   font-size: 16px;
   font-weight: 300;

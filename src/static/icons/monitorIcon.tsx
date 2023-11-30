@@ -8,7 +8,7 @@ export const MonitorIcon = ({ ...props }: Props) => {
       <path
         d='M4.75 14.25H11.25M8 11.75V14.25M1.75 1.75H14.25V11.25H1.75V1.75Z'
         pathLength='1'
-        stroke='#343A40'
+        stroke='hsl(var(--col-icon))'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'

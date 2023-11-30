@@ -4,7 +4,7 @@ export const MailIcon = ({ width = '32', height = '32', color = '#343A40', ...pr
       <path
         d='M2.14313 3.75H14.5939V13.25H2.14313V3.75Z'
         pathLength='1'
-        stroke='var(--icon-color, black)'
+        stroke='hsl(var(--col-icon))'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
@@ -12,7 +12,7 @@ export const MailIcon = ({ width = '32', height = '32', color = '#343A40', ...pr
       <path
         d='M2.64117 4.25L8.36852 9.25L14.0959 4.25'
         pathLength='1'
-        stroke='var(--icon-color, black)'
+        stroke='hsl(var(--col-icon))'
         strokeWidth='1.5'
         strokeLinecap='round'
         strokeLinejoin='round'
